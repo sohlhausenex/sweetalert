@@ -1,4 +1,4 @@
-var injectedHTML = 
+var injectedHTML =
 
   // Dark overlay
   `<div class="sweet-overlay" tabIndex="-1"></div>` +
@@ -37,22 +37,21 @@ var injectedHTML =
     // Title, text and input
     `<h2>Title</h2>
     <p>Text</p>
-    <fieldset>
-      <input type="text" tabIndex="3" />
-      <div class="sa-input-error"></div>
-    </fieldset>` +
+    <div class="sa-input-container">
+    </div>
+    ` +
 
     // Input errors
     `<div class="sa-error-container">
-      <div class="icon">!</div>
-      <p>Not valid!</p>
+      <div class="icon"><!-- Remove "!" for 508 reasons --></div>
+      <p><!-- Remove "Not valid!" for 508 reasons --></p>
     </div>` +
 
     // Cancel and confirm buttons
     `<div class="sa-button-container">
       <button class="cancel" tabIndex="2">Cancel</button>
       <div class="sa-confirm-button-container">
-        <button class="confirm" tabIndex="1">OK</button>` + 
+        <button class="confirm" tabIndex="1">OK</button>` +
 
         // Loading animation
         `<div class="la-ball-fall">
