@@ -7,6 +7,8 @@ import {
 import {
   getModal,
   getInput,
+  buildInput,
+
   setFocusStyle
 } from './handle-swal-dom';
 
@@ -81,6 +83,10 @@ var setParameters = function(params) {
       show($icon);
     }
 
+    //add input if the type is input
+    if (params.type === alertTypes[4]) {
+      buildInput();
+    }
     let $input = getInput();
 
     // Animate icon
@@ -151,8 +157,6 @@ var setParameters = function(params) {
   modal.setAttribute('data-has-cancel-button', params.showCancelButton);
   if (params.showCancelButton) {
     $cancelBtn.style.display = 'inline-block';
-  } else {
-    hide($cancelBtn);
   }
 
   /*
