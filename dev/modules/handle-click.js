@@ -26,7 +26,7 @@ var handleButton = function(event, params, modal) {
 
   function shouldSetConfirmButtonColor(color) {
     if (targetedConfirm && params.confirmButtonColor) {
-      target.style.backgroundColor = color;
+      // target.style.backgroundColor = color;
     }
   }
 

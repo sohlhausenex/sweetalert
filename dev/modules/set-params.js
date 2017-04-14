@@ -184,14 +184,14 @@ var setParameters = function(params) {
    */
   if (params.confirmButtonColor) {
     // Set confirm button to selected background color
-    $confirmBtn.style.backgroundColor = params.confirmButtonColor;
+    // $confirmBtn.style.backgroundColor = params.confirmButtonColor;
 
     // Set the confirm button color to the loading ring
-    $confirmBtn.style.borderLeftColor = params.confirmLoadingButtonColor;
-    $confirmBtn.style.borderRightColor = params.confirmLoadingButtonColor;
+    // $confirmBtn.style.borderLeftColor = params.confirmLoadingButtonColor;
+    // $confirmBtn.style.borderRightColor = params.confirmLoadingButtonColor;
 
     // Set box-shadow to default focused button
-    setFocusStyle($confirmBtn, params.confirmButtonColor);
+    // setFocusStyle($confirmBtn, params.confirmButtonColor);
   }
 
   /*
