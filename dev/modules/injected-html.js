@@ -50,9 +50,9 @@ var injectedHTML =
 
     // Cancel and confirm buttons
     `<div class="sa-button-container">
-      <button class="cancel" tabIndex="2">Cancel</button>
+      <button class="cancel uscis-button uscis-button-gray" tabIndex="2">Cancel</button>
       <div class="sa-confirm-button-container">
-        <button class="confirm" tabIndex="1">OK</button>` + 
+        <button class="confirm uscis-button uscis-button-blue" tabIndex="1">OK</button>` + 
 
         // Loading animation
         `<div class="la-ball-fall">

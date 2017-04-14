@@ -55,8 +55,8 @@ var getOverlay = function() {
  * Add box-shadow style to button (depending on its chosen bg-color)
  */
 var setFocusStyle = function($button, bgColor) {
-  var rgbColor = hexToRgb(bgColor);
-  $button.style.boxShadow = '0 0 2px rgba(' + rgbColor + ', 0.8), inset 0 0 0 1px rgba(0, 0, 0, 0.05)';
+  // var rgbColor = hexToRgb(bgColor);
+  // $button.style.boxShadow = '0 0 2px rgba(' + rgbColor + ', 0.8), inset 0 0 0 1px rgba(0, 0, 0, 0.05)';
 };
 
 /*
