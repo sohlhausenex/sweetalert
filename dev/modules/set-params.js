@@ -89,21 +89,34 @@ var setParameters = function(params) {
     }
     let $input = getInput();
 
+    // reset classes
+    removeClass(modal, 'uscis-alert-info');
+    removeClass(modal, 'uscis-alert-success');
+    removeClass(modal, 'uscis-alert-warning');
+    removeClass(modal, 'uscis-alert-error');
+
     // Animate icon
     switch (params.type) {
 
+      case 'info':
+        addClass(modal, 'uscis-alert-info');
+        break;
+
       case 'success':
+        addClass(modal, 'uscis-alert-success');
         addClass($icon, 'animate');
         addClass($icon.querySelector('.sa-tip'), 'animateSuccessTip');
         addClass($icon.querySelector('.sa-long'), 'animateSuccessLong');
         break;
 
       case 'error':
+        addClass(modal, 'uscis-alert-error');
         addClass($icon, 'animateErrorIcon');
         addClass($icon.querySelector('.sa-x-mark'), 'animateXMark');
         break;
 
       case 'warning':
+        addClass(modal, 'uscis-alert-warning');
         addClass($icon, 'pulseWarning');
         addClass($icon.querySelector('.sa-body'), 'pulseWarningIns');
         addClass($icon.querySelector('.sa-dot'), 'pulseWarningIns');

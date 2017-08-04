@@ -4,7 +4,7 @@ var injectedHTML =
   `<div class="sweet-overlay" tabIndex="-1"></div>` +
 
   // Modal
-  `<div class="sweet-alert">` +
+  `<div class="sweet-alert uscis-alert">` +
 
     // Error icon
     `<div class="sa-icon sa-error">
@@ -35,21 +35,20 @@ var injectedHTML =
     `<div class="sa-icon sa-custom"></div>` +
 
     // Title, text and input
-    `<h2>Title</h2>
-    <p>Text</p>
-    <div class="sa-input-container">
-    </div>
-    ` +
+    `<h2 class="uscis-alert-title">Title</h2>
+    <p class="uscis-alert-content">Text</p>
+    <fieldset>
+      <input type="text" tabIndex="3" />
+      <div class="sa-input-error"></div>
+    </fieldset>` +
 
     // Input errors
     `<div class="sa-error-container">
-      <div class="icon"><!-- Remove "!" for 508 reasons --></div>
-      <p><!-- Remove "Not valid!" for 508 reasons --></p>
     </div>` +
 
     // Cancel and confirm buttons
-    `<div class="sa-button-container">
-      <button class="cancel uscis-button uscis-button-gray" tabIndex="2">Cancel</button>
+    `<div class="sa-button-container uscis-alert-buttons">
+      <button class="cancel uscis-button uscis-button-clear" tabIndex="2">Cancel</button>
       <div class="sa-confirm-button-container">
         <button class="confirm uscis-button uscis-button-blue" tabIndex="1">OK</button>` + 
         // Loading animation
