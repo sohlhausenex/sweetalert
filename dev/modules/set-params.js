@@ -7,6 +7,8 @@ import {
 import {
   getModal,
   getInput,
+  buildInput,
+
   setFocusStyle
 } from './handle-swal-dom';
 
@@ -81,23 +83,40 @@ var setParameters = function(params) {
       show($icon);
     }
 
+    //add input if the type is input
+    if (params.type === alertTypes[4]) {
+      buildInput();
+    }
     let $input = getInput();
+
+    // reset classes
+    removeClass(modal, 'uscis-alert-info');
+    removeClass(modal, 'uscis-alert-success');
+    removeClass(modal, 'uscis-alert-warning');
+    removeClass(modal, 'uscis-alert-error');
 
     // Animate icon
     switch (params.type) {
 
+      case 'info':
+        addClass(modal, 'uscis-alert-info');
+        break;
+
       case 'success':
+        addClass(modal, 'uscis-alert-success');
         addClass($icon, 'animate');
         addClass($icon.querySelector('.sa-tip'), 'animateSuccessTip');
         addClass($icon.querySelector('.sa-long'), 'animateSuccessLong');
         break;
 
       case 'error':
+        addClass(modal, 'uscis-alert-error');
         addClass($icon, 'animateErrorIcon');
         addClass($icon.querySelector('.sa-x-mark'), 'animateXMark');
         break;
 
       case 'warning':
+        addClass(modal, 'uscis-alert-warning');
         addClass($icon, 'pulseWarning');
         addClass($icon.querySelector('.sa-body'), 'pulseWarningIns');
         addClass($icon.querySelector('.sa-dot'), 'pulseWarningIns');
@@ -151,8 +170,6 @@ var setParameters = function(params) {
   modal.setAttribute('data-has-cancel-button', params.showCancelButton);
   if (params.showCancelButton) {
     $cancelBtn.style.display = 'inline-block';
-  } else {
-    hide($cancelBtn);
   }
 
   /*
@@ -180,14 +197,14 @@ var setParameters = function(params) {
    */
   if (params.confirmButtonColor) {
     // Set confirm button to selected background color
-    $confirmBtn.style.backgroundColor = params.confirmButtonColor;
+    // $confirmBtn.style.backgroundColor = params.confirmButtonColor;
 
     // Set the confirm button color to the loading ring
-    $confirmBtn.style.borderLeftColor = params.confirmLoadingButtonColor;
-    $confirmBtn.style.borderRightColor = params.confirmLoadingButtonColor;
+    // $confirmBtn.style.borderLeftColor = params.confirmLoadingButtonColor;
+    // $confirmBtn.style.borderRightColor = params.confirmLoadingButtonColor;
 
     // Set box-shadow to default focused button
-    setFocusStyle($confirmBtn, params.confirmButtonColor);
+    // setFocusStyle($confirmBtn, params.confirmButtonColor);
   }
 
   /*

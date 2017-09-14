@@ -4,6 +4,10 @@ import defaultParams from './default-params';
 
 var modalClass   = '.sweet-alert';
 var overlayClass = '.sweet-overlay';
+var inputHtml = `<fieldset>
+                  <input type="text" tabIndex="3" />
+                  <div class="sa-input-error"></div>
+                </fieldset>`;
 
 /*
  * Add modal + overlay to DOM
@@ -35,6 +39,15 @@ var getModal = function() {
 };
 
 /*
+ * Build Input DOM
+ */
+var buildInput = function() {
+  var $modal = getModal();
+  var $inputContainer = $modal.querySelector('.sa-input-container');
+  $inputContainer.innerHTML = inputHtml;
+};
+
+/*
  * Get DOM element of input (in modal)
  */
 var getInput = function() {
@@ -55,8 +68,8 @@ var getOverlay = function() {
  * Add box-shadow style to button (depending on its chosen bg-color)
  */
 var setFocusStyle = function($button, bgColor) {
-  var rgbColor = hexToRgb(bgColor);
-  $button.style.boxShadow = '0 0 2px rgba(' + rgbColor + ', 0.8), inset 0 0 0 1px rgba(0, 0, 0, 0.05)';
+  // var rgbColor = hexToRgb(bgColor);
+  // $button.style.boxShadow = '0 0 2px rgba(' + rgbColor + ', 0.8), inset 0 0 0 1px rgba(0, 0, 0, 0.05)';
 };
 
 /*
@@ -83,7 +96,7 @@ var openModal = function(callback) {
     var timerCallback = callback;
     $modal.timeout = setTimeout(function() {
       var doneFunctionExists = ((timerCallback || null) && $modal.getAttribute('data-has-done-function') === 'true');
-      if (doneFunctionExists) { 
+      if (doneFunctionExists) {
         timerCallback(null);
       }
       else {
@@ -102,9 +115,11 @@ var resetInput = function() {
   var $input = getInput();
 
   removeClass($modal, 'show-input');
-  $input.value = defaultParams.inputValue;
-  $input.setAttribute('type', defaultParams.inputType);
-  $input.setAttribute('placeholder', defaultParams.inputPlaceholder);
+  if($input !== null) {
+    $input.value = defaultParams.inputValue;
+    $input.setAttribute('type', defaultParams.inputType);
+    $input.setAttribute('placeholder', defaultParams.inputPlaceholder);
+  }
 
   resetInputError();
 };
@@ -119,7 +134,9 @@ var resetInputError = function(event) {
   var $modal = getModal();
 
   var $errorIcon = $modal.querySelector('.sa-input-error');
-  removeClass($errorIcon, 'show');
+  if ($errorIcon !== null) {
+    removeClass($errorIcon, 'show');
+  }
 
   var $errorContainer = $modal.querySelector('.sa-error-container');
   removeClass($errorContainer, 'show');
@@ -135,10 +152,11 @@ var fixVerticalPosition = function() {
 };
 
 
-export { 
+export {
   sweetAlertInitialize,
   getModal,
   getOverlay,
+  buildInput,
   getInput,
   setFocusStyle,
   openModal,
