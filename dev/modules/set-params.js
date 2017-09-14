@@ -170,6 +170,8 @@ var setParameters = function(params) {
   modal.setAttribute('data-has-cancel-button', params.showCancelButton);
   if (params.showCancelButton) {
     $cancelBtn.style.display = 'inline-block';
+  } else {
+    hide($cancelBtn);
   }
 
   /*
