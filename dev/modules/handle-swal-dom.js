@@ -83,12 +83,19 @@ var openModal = function(callback) {
   removeClass($modal, 'hideSweetAlert');
 
   window.previousActiveElement = document.activeElement;
-  var $okButton = $modal.querySelector('button.confirm');
-  $okButton.focus();
 
   setTimeout(function () {
     addClass($modal, 'visible');
-  }, 500);
+    //focus on cancel if visible, if not then ok
+    var $okButton = $modal.querySelector('button.confirm');
+    var $cancelButton = $modal.querySelector('button.cancel');
+    if ($cancelButton.style.display === 'none') {
+     $okButton.focus();
+    }
+    else {
+      $cancelButton.focus();
+    }
+  }, 100);
 
   var timer = $modal.getAttribute('data-timer');
 
