@@ -86,15 +86,8 @@ var openModal = function(callback) {
 
   setTimeout(function () {
     addClass($modal, 'visible');
-    //focus on cancel if visible, if not then ok
     var $okButton = $modal.querySelector('button.confirm');
-    var $cancelButton = $modal.querySelector('button.cancel');
-    if ($cancelButton.style.display === 'none') {
-     $okButton.focus();
-    }
-    else {
-      $cancelButton.focus();
-    }
+    $okButton.focus();
   }, 100);
 
   var timer = $modal.getAttribute('data-timer');
